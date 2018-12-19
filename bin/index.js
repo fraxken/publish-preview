@@ -8,7 +8,7 @@ const { parse } = require("path");
 const { blue, green, yellow, white } = require("kleur");
 
 // Require Internal Dependencies
-const { logProperty } = require("../src/utils");
+const { logProperty, unitSize } = require("../src/utils");
 
 // CONSTANT
 DIR_SPACE = 26;
@@ -21,13 +21,14 @@ const [result] = JSON.parse(stdout.toString());
 
 // Update size unit
 result.name = `${result.name} (${blue(result.filename)})`;
-result.size = `${result.size}${white("kB")}`;
-result.unpackedSize = `${result.unpackedSize}${white("kB")}`;
+result.size = `${result.size}${white(unitSize(result.size))}`;
+result.unpackedSize = `${result.unpackedSize}${white(unitSize(result.unpackedSize))}`;
 
 // Remove useless property
 delete result.id;
 delete result.filename;
 delete result.entryCount;
+delete result.bundled;
 
 console.log(`\n${yellow("Publication (Package) Preview")}`);
 for (const [name, value] of Object.entries(result)) {
@@ -38,13 +39,14 @@ for (const [name, value] of Object.entries(result)) {
 }
 
 console.log(`\n${yellow("┌─ Files")}`);
-for (const { path, mode, size } of result.files) {
+for (const { path, size } of result.files) {
     const { dir, base } = parse(path);
 
     const dirOutput = green(`[📁${dir === "" ? "." : dir}] `);
-    const sizeOutput = `<${yellow(size)} kB>`;
+    const unit = unitSize(size);
+    const sizeOutput = `<${yellow(size)} ${unit}>`;
 
-    const dirSpace = DIR_SPACE - dirOutput.length;
-    const sizeSpace = 7 - size.toString().length;
+    const dirSpace = Math.max(0, DIR_SPACE - dirOutput.length);
+    const sizeSpace = Math.max(0, 10 - unit.length - size.toString().length);
     console.log(`${yellow("├─")} ${dirOutput}${" ".repeat(dirSpace)}${sizeOutput}${" ".repeat(sizeSpace)}${base}`);
 }

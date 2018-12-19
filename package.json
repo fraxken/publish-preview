@@ -2,7 +2,7 @@
     "name": "publish-preview",
     "version": "1.0.0",
     "description": "npm CLI to get a preview of files that will be publish",
-    "main": "index.js",
+    "main": "./bin/index.js",
     "scripts": {
         "prepublishOnly": "pkg-ok",
         "test": "ava --verbose",

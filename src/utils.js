@@ -21,4 +21,15 @@ function logProperty(name, value) {
     console.log(`${name}${" ".repeat(flySpace)}-> ${green(value)}`);
 }
 
-module.exports = { logProperty };
+/**
+ * @func unitSize
+ * @desc Get unit size in B or kB
+ * @memberof Utils#
+ * @param {!Number} unit unit
+ * @return {String}
+ */
+function unitSize(unit) {
+    return unit < 1000 ? "B" : "kB";
+}
+
+module.exports = { logProperty, unitSize };
