@@ -3,14 +3,24 @@
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![V1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
-npm CLI to get a preview of files that will be publish
+npm CLI to get a preview of files that will be published. This use `npm pack --dry-run --json --loglevel=silent` under the hood.
+
+<img src="https://cdn.discordapp.com/attachments/359783689040953354/525061233053794314/unknown.png" height="290">
+
 
 ## Getting Started
 
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
-$ npm i publish-preview
+$ npm i publish-preview -g
 # or
-$ yarn add publish-preview
+$ yarn add publish-preview -g
+```
+
+## Usage example
+
+```bash
+$ cd yourProject
+$ pubview
 ```
