@@ -13,16 +13,16 @@ This use the following npm command under the hood:
 </p>
 
 ## Getting Started
-
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
+$ npm install publish-preview -g
+# or
 $ npx publish-preview
 ```
 
 ## Usage example
-
-When installed globally the `pubview` executable will be exposed
+When installed globally the `pubview` executable will be exposed in your terminal
 
 ```bash
 $ cd yourProject
