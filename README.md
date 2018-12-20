@@ -5,9 +5,9 @@
 
 npm CLI to get a preview of files that will be published. This use `npm pack --dry-run --json --loglevel=silent` under the hood.
 
-<center>
+<p align="center">
     <img src="https://cdn.discordapp.com/attachments/359783689040953354/525257645330792448/unknown.png" height="450">
-</center>
+</p>
 
 ## Getting Started
 
