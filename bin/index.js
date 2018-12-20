@@ -4,7 +4,8 @@ require("make-promises-safe");
 // Require Node.js Dependencies
 const { execSync } = require("child_process");
 const { parse } = require("path");
-const { stat } = require("fs").promises;
+const { promisify } = require("util");
+const fs = require("fs");
 
 // Require Third-party Dependencies
 const { blue, green, yellow, gray } = require("kleur");
@@ -14,6 +15,7 @@ const Mode = require("stat-mode");
 const { logProperty, unitSize, fixedSpace } = require("../src/utils");
 
 // HEAD Variables...
+const stat = promisify(fs.stat);
 const unitSpaces = fixedSpace(15);
 
 // Execute command in synchronous
