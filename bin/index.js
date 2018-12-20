@@ -8,7 +8,7 @@ const { promisify } = require("util");
 const fs = require("fs");
 
 // Require Third-party Dependencies
-const { blue, green, yellow, gray } = require("kleur");
+const { green, yellow, gray, cyan } = require("kleur");
 const Mode = require("stat-mode");
 
 // Require Internal Dependencies
@@ -18,6 +18,9 @@ const { logProperty, unitSize, fixedSpace } = require("../src/utils");
 const stat = promisify(fs.stat);
 const unitSpaces = fixedSpace(15);
 
+// TODO: Improve this to detect if terminal support emoji
+const showDir = process.platform === "win32";
+
 // Execute command in synchronous
 console.log(`\n${gray(" > npm pack --dry-run --json --loglevel=silent")}`);
 const stdout = execSync("npm pack --dry-run --json --loglevel=silent");
@@ -26,7 +29,7 @@ const stdout = execSync("npm pack --dry-run --json --loglevel=silent");
 const [result] = JSON.parse(stdout.toString());
 
 // Update size unit
-result.name = `${result.name} (${blue(result.filename)})`;
+result.name = `${result.name} (${cyan(result.filename)})`;
 result.size = `${yellow(unitSize(result.size))}`;
 result.unpackedSize = `${yellow(unitSize(result.unpackedSize))}`;
 
@@ -65,7 +68,7 @@ async function main() {
         const sysRight = new Mode(statFiles[id]).toString();
 
         // Outputs
-        const dirOutput = green(`📁${dir === "" ? "/" : dir} `);
+        const dirOutput = green(`${showDir ? "📁" : ""}${dir === "" ? "/" : dir} `);
 
         // Calculate Fixed Spaces
         const dS = dirSpaces(dirOutput.length);
