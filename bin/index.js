@@ -8,10 +8,11 @@ const { parse } = require("path");
 const { blue, green, yellow, white } = require("kleur");
 
 // Require Internal Dependencies
-const { logProperty, unitSize } = require("../src/utils");
+const { logProperty, unitSize, fixedSpace } = require("../src/utils");
 
-// CONSTANT
-DIR_SPACE = 26;
+// HEAD Variables...
+const dirSpaces = fixedSpace(26);
+const unitSpaces = fixedSpace(10);
 
 // Execute command in synchronous
 const stdout = execSync("npm pack --dry-run --json --loglevel=silent");
@@ -24,8 +25,9 @@ result.name = `${result.name} (${blue(result.filename)})`;
 result.size = `${result.size}${white(unitSize(result.size))}`;
 result.unpackedSize = `${result.unpackedSize}${white(unitSize(result.unpackedSize))}`;
 
+const entryCount = result.entryCount;
+
 // Remove useless property
-delete result.id;
 delete result.filename;
 delete result.entryCount;
 delete result.bundled;
@@ -38,15 +40,20 @@ for (const [name, value] of Object.entries(result)) {
     logProperty(name, value);
 }
 
-console.log(`\n${yellow("┌─ Files")}`);
-for (const { path, size } of result.files) {
+console.log(`\n${yellow(`┌─ (${entryCount}) Files`)}`);
+console.log(yellow("│"));
+for (let id = 0; id < result.files.length; id++) {
+    const { path, size } = result.files[id];
     const { dir, base } = parse(path);
-
-    const dirOutput = green(`[📁${dir === "" ? "." : dir}] `);
     const unit = unitSize(size);
-    const sizeOutput = `<${yellow(size)} ${unit}>`;
 
-    const dirSpace = Math.max(0, DIR_SPACE - dirOutput.length);
-    const sizeSpace = Math.max(0, 10 - unit.length - size.toString().length);
-    console.log(`${yellow("├─")} ${dirOutput}${" ".repeat(dirSpace)}${sizeOutput}${" ".repeat(sizeSpace)}${base}`);
+    // Outputs
+    const dirOutput = green(`📁${dir === "" ? "/" : dir} `);
+
+    // Calculate Fixed Spaces
+    const dS = dirSpaces(dirOutput.length);
+    const sS = unitSpaces(unit.length - size.toString().length);
+
+    const endCarac = id === result.files.length - 1 ? "└" : "├";
+    console.log(`${yellow(endCarac)} ${dirOutput + dS}<${yellow(size)} ${unit}>${sS + base}`);
 }

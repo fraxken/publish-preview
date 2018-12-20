@@ -32,4 +32,18 @@ function unitSize(unit) {
     return unit < 1000 ? "B" : "kB";
 }
 
-module.exports = { logProperty, unitSize };
+/**
+ * @func fixedSpace
+ * @memberof Utils#
+ * @param {!Number} size fixed size
+ * @returns {Function}
+ */
+function fixedSpace(size) {
+    return (length) => " ".repeat(Math.max(0, size - length));
+}
+
+module.exports = {
+    logProperty,
+    unitSize,
+    fixedSpace
+};

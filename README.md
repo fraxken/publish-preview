@@ -24,3 +24,6 @@ $ yarn add publish-preview -g
 $ cd yourProject
 $ pubview
 ```
+
+## Roadmap
+- Implement something for `bundled` field ?
