@@ -17,6 +17,7 @@ const { logProperty, unitSize, fixedSpace } = require("../src/utils");
 const unitSpaces = fixedSpace(15);
 
 // Execute command in synchronous
+console.log(`\n${gray(" > npm pack --dry-run --json --loglevel=silent")}`);
 const stdout = execSync("npm pack --dry-run --json --loglevel=silent");
 
 /** @type {PublishPreview.TarballPackage[]} */
@@ -34,7 +35,7 @@ delete result.filename;
 delete result.entryCount;
 delete result.bundled;
 
-console.log(`\n${yellow("Publication (Package) Preview")}`);
+console.log(`\n${yellow("Publication (Package) Preview")}\n`);
 for (const [name, value] of Object.entries(result)) {
     if (name === "files") {
         continue;
