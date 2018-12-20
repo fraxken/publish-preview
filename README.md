@@ -3,7 +3,10 @@
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![V1.0](https://img.shields.io/badge/version-1.1.2-blue.svg)
 
-npm CLI to get a preview of files that will be published. This use `npm pack --dry-run --json --loglevel=silent` under the hood.
+Node.js CLI to get a preview of properties and files that will be published on the registry by NPM. 
+This use the following npm command under the hood:
+
+> npm pack --dry-run --json --loglevel=silent`
 
 <p align="center">
     <img src="https://cdn.discordapp.com/attachments/359783689040953354/525257645330792448/unknown.png" height="450">
