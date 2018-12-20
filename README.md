@@ -13,12 +13,12 @@ npm CLI to get a preview of files that will be published. This use `npm pack --d
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
-$ npm i publish-preview -g
-# or
-$ yarn add publish-preview -g
+$ npx publish-preview
 ```
 
 ## Usage example
+
+When installed globally the `pubview` executable will be exposed
 
 ```bash
 $ cd yourProject
