@@ -4,6 +4,7 @@
 
 // Require Third-party Dependencies
 const { green } = require("kleur");
+const prettysize = require("prettysize");
 
 // CONSTANT
 const KEY_LEN = 16;
@@ -29,7 +30,7 @@ function logProperty(name, value) {
  * @return {String}
  */
 function unitSize(unit) {
-    return unit < 1000 ? "B" : "kB";
+    return prettysize(unit, { places: 2 });
 }
 
 /**

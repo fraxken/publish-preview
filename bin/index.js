@@ -1,18 +1,20 @@
 #!/usr/bin/env node
+require("make-promises-safe");
 
 // Require Node.js Dependencies
 const { execSync } = require("child_process");
 const { parse } = require("path");
+const { stat } = require("fs").promises;
 
 // Require Third-party Dependencies
-const { blue, green, yellow, white } = require("kleur");
+const { blue, green, yellow, gray } = require("kleur");
+const Mode = require("stat-mode");
 
 // Require Internal Dependencies
 const { logProperty, unitSize, fixedSpace } = require("../src/utils");
 
 // HEAD Variables...
-const dirSpaces = fixedSpace(26);
-const unitSpaces = fixedSpace(10);
+const unitSpaces = fixedSpace(15);
 
 // Execute command in synchronous
 const stdout = execSync("npm pack --dry-run --json --loglevel=silent");
@@ -22,8 +24,8 @@ const [result] = JSON.parse(stdout.toString());
 
 // Update size unit
 result.name = `${result.name} (${blue(result.filename)})`;
-result.size = `${result.size}${white(unitSize(result.size))}`;
-result.unpackedSize = `${result.unpackedSize}${white(unitSize(result.unpackedSize))}`;
+result.size = `${yellow(unitSize(result.size))}`;
+result.unpackedSize = `${yellow(unitSize(result.unpackedSize))}`;
 
 const entryCount = result.entryCount;
 
@@ -40,20 +42,34 @@ for (const [name, value] of Object.entries(result)) {
     logProperty(name, value);
 }
 
-console.log(`\n${yellow(`┌─ (${entryCount}) Files`)}`);
-console.log(yellow("│"));
-for (let id = 0; id < result.files.length; id++) {
-    const { path, size } = result.files[id];
-    const { dir, base } = parse(path);
-    const unit = unitSize(size);
+async function main() {
+    const dirMaxLen = result.files.reduce((prev, curr) => {
+        const { dir } = parse(curr.path);
 
-    // Outputs
-    const dirOutput = green(`📁${dir === "" ? "/" : dir} `);
+        return dir.length > prev ? dir.length : prev;
+    }, 0);
+    const dirSpaces = fixedSpace(dirMaxLen + 15);
 
-    // Calculate Fixed Spaces
-    const dS = dirSpaces(dirOutput.length);
-    const sS = unitSpaces(unit.length - size.toString().length);
+    // Retrieve all files stat!
+    const statFiles = await Promise.all(result.files.map((file) => stat(file.path)));
 
-    const endCarac = id === result.files.length - 1 ? "└" : "├";
-    console.log(`${yellow(endCarac)} ${dirOutput + dS}<${yellow(size)} ${unit}>${sS + base}`);
+    console.log(`\n${yellow(`┌─ (${green(entryCount)}) Files`)}`);
+    console.log(yellow("│"));
+    for (let id = 0; id < result.files.length; id++) {
+        const { path, size } = result.files[id];
+        const { dir, base } = parse(path);
+        const unit = unitSize(size);
+        const sysRight = new Mode(statFiles[id]).toString();
+
+        // Outputs
+        const dirOutput = green(`📁${dir === "" ? "/" : dir} `);
+
+        // Calculate Fixed Spaces
+        const dS = dirSpaces(dirOutput.length);
+        const sS = unitSpaces(unit.length);
+
+        const endCarac = id === result.files.length - 1 ? "└" : "├";
+        console.log(`${yellow(endCarac)} ${dirOutput + dS}<${yellow(unit)}>${sS + gray(sysRight)}   ${base}`);
+    }
 }
+main().catch(console.error);
