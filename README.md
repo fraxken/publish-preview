@@ -27,3 +27,6 @@ $ pubview
 
 ## Roadmap
 - Implement something for `bundled` field ?
+- Improve powershell support
+
+> Pull-request are welcome!
