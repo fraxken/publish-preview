@@ -1,7 +1,7 @@
 # publish-preview
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/is/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-![V1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![V1.0](https://img.shields.io/badge/version-1.1.0-blue.svg)
 
 npm CLI to get a preview of files that will be published. This use `npm pack --dry-run --json --loglevel=silent` under the hood.
 
