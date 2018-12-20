@@ -15,10 +15,12 @@
         "url": "git+https://github.com/fraxken/publish-preview.git"
     },
     "keywords": [
-        "SlimIO",
-        "monitoring"
+        "npm",
+        "pack",
+        "publish",
+        "preview"
     ],
-    "author": "SlimIO",
+    "author": "GENTILHOMME Thomas",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/fraxken/publish-preview/issues"
