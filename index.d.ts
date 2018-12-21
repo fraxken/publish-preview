@@ -18,7 +18,7 @@ declare namespace PublishPreview {
         integrity: string;
         filename: string;
         entryCount: number;
-        bundled: any[];
+        bundled: string[];
         files: TarballFile[];
     }
 }

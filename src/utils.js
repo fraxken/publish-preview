@@ -4,7 +4,6 @@
 
 // Require Third-party Dependencies
 const { green } = require("kleur");
-const prettysize = require("prettysize");
 
 // CONSTANT
 const KEY_LEN = 16;
@@ -23,17 +22,6 @@ function logProperty(name, value) {
 }
 
 /**
- * @func unitSize
- * @desc Get unit size in B or kB
- * @memberof Utils#
- * @param {!Number} unit unit
- * @return {String}
- */
-function unitSize(unit) {
-    return prettysize(unit, { places: 2 });
-}
-
-/**
  * @func fixedSpace
  * @memberof Utils#
  * @param {!Number} size fixed size
@@ -45,6 +33,5 @@ function fixedSpace(size) {
 
 module.exports = {
     logProperty,
-    unitSize,
     fixedSpace
 };
