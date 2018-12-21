@@ -3,7 +3,7 @@
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![V1.0](https://img.shields.io/badge/version-1.1.2-blue.svg)
 
-Node.js CLI to get a preview of properties and files that will be published on the registry by NPM. 
+Node.js CLI to get a preview of properties and files that will be published on the registry by NPM.
 This use the following npm command under the hood:
 
 > npm pack --dry-run --json --loglevel=silent`
@@ -30,7 +30,6 @@ $ pubview
 ```
 
 ## Roadmap
-- Implement something for `bundled` field ?
 - Detect if the terminal support emoji or not.
 
 > Pull-request are welcome!

@@ -40,7 +40,8 @@ for (const [name, value] of Object.entries(result)) {
     }
     logProperty(name, value);
 }
-logProperty("bundled", white(`[${result.bundled.join(",")}]`));
+const bundled = result.bundled.map((dep) => cyan(dep)).join(", ");
+logProperty("bundled", white(`[${bundled}]`));
 
 async function main() {
     const dirMaxLen = result.files.reduce((prev, curr) => {
