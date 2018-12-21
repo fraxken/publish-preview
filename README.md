@@ -9,7 +9,7 @@ This use the following npm command under the hood:
 > npm pack --dry-run --json --loglevel=silent`
 
 <p align="center">
-    <img src="https://cdn.discordapp.com/attachments/359783689040953354/525257645330792448/unknown.png" height="450">
+    <img src="https://i.imgur.com/kCqawKg.png" height="450">
 </p>
 
 ## Getting Started
