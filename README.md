@@ -1,7 +1,7 @@
 # publish-preview
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/fraxken/publish-preview/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-![V1.0](https://img.shields.io/badge/version-1.1.2-blue.svg)
+![V1.0](https://img.shields.io/badge/version-1.2.0-blue.svg)
 
 Node.js CLI to get a preview of properties and files that will be published on the registry by NPM.
 This use the following npm command under the hood:
