@@ -72,5 +72,6 @@ async function main() {
         const endCarac = id === result.files.length - 1 ? "└" : "├";
         console.log(`${yellow(endCarac)} ${dirOutput + dS}<${yellow(unit)}>${sS + gray(sysRight)}   ${base}`);
     }
+    console.log("\n");
 }
 main().catch(console.error);
