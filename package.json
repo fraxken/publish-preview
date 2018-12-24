@@ -27,6 +27,7 @@
     },
     "homepage": "https://github.com/fraxken/publish-preview#readme",
     "dependencies": {
+        "as-table": "^1.0.36",
         "kleur": "^3.0.1",
         "make-promises-safe": "^4.0.0",
         "prettysize": "^2.0.0",

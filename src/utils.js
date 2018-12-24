@@ -21,17 +21,6 @@ function logProperty(name, value) {
     console.log(`${name}${" ".repeat(flySpace)}-> ${green(value)}`);
 }
 
-/**
- * @func fixedSpace
- * @memberof Utils#
- * @param {!Number} size fixed size
- * @returns {Function}
- */
-function fixedSpace(size) {
-    return (length) => " ".repeat(Math.max(0, size - length));
-}
-
 module.exports = {
-    logProperty,
-    fixedSpace
+    logProperty
 };

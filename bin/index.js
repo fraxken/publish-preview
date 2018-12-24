@@ -11,13 +11,13 @@ const fs = require("fs");
 const { green, yellow, gray, cyan, white } = require("kleur");
 const prettysize = require("prettysize");
 const Mode = require("stat-mode");
+const asTable = require("as-table");
 
 // Require Internal Dependencies
-const { logProperty, fixedSpace } = require("../src/utils");
+const { logProperty } = require("../src/utils");
 
 // HEAD Variables...
 const stat = promisify(fs.stat);
-const unitSpaces = fixedSpace(15);
 const doNotLog = new Set(["files", "bundled", "entryCount"]);
 
 // Execute command in synchronous
@@ -44,34 +44,22 @@ const bundled = result.bundled.map((dep) => cyan(dep)).join(", ");
 logProperty("bundled", white(`[${bundled}]`));
 
 async function main() {
-    const dirMaxLen = result.files.reduce((prev, curr) => {
-        const dir = dirname(curr.path);
-
-        return dir.length > prev ? dir.length : prev;
-    }, 0);
-    const dirSpaces = fixedSpace(dirMaxLen + 15);
-
     // Retrieve all files stat in Asynchronous
     const statFiles = await Promise.all(result.files.map((file) => stat(file.path)));
 
-    console.log(`\n${yellow(`┌─ (${green(result.entryCount)}) Files`)}`);
-    console.log(yellow("│"));
+    console.log(`\n${green(result.entryCount)} ${yellow("Files")}\n`);
+    const stdout = [];
     for (let id = 0; id < result.files.length; id++) {
         const { path, size } = result.files[id];
         const { dir, base } = parse(path);
-        const unit = prettysize(size, { places: 2 });
-        const sysRight = new Mode(statFiles[id]).toString();
 
-        // Outputs
-        const dirOutput = green(`${"📁"}${dir === "" ? "/" : dir} `);
-
-        // Calculate Fixed Spaces
-        const dS = dirSpaces(dirOutput.length);
-        const sS = unitSpaces(unit.length);
-
-        const endCarac = id === result.files.length - 1 ? "└" : "├";
-        console.log(`${yellow(endCarac)} ${dirOutput + dS}<${yellow(unit)}>${sS + gray(sysRight)}   ${base}`);
+        stdout.push([
+            green(`📁 ${dir === "" ? "/" : dir} `),
+            `<${yellow(prettysize(size, { places: 2 }))}>`,
+            gray(new Mode(statFiles[id]).toString()),
+            base
+        ]);
     }
-    console.log("\n");
+    console.log(`${asTable(stdout)}\n`);
 }
 main().catch(console.error);
