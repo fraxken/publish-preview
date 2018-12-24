@@ -3,7 +3,7 @@ require("make-promises-safe");
 
 // Require Node.js Dependencies
 const { execSync } = require("child_process");
-const { parse, dirname } = require("path");
+const { parse } = require("path");
 const { promisify } = require("util");
 const fs = require("fs");
 
