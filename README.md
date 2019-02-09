@@ -3,7 +3,7 @@
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![dependencies](https://img.shields.io/david/fraxken/publish-preview.svg?style=flat)
 [![Known Vulnerabilities](https://snyk.io/test/github/fraxken/publish-preview/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fraxken/publish-preview?targetFile=package.json)
-[![Build Status](https://travis-ci.com/fraxken/publish-preview.svg?branch=master)](https://travis-ci.com/fraxken/publish-preview)
+[![Build Status](https://travis-ci.com/fraxken/publish-preview.svg?branch=master)](https://travis-ci.com/fraxken/publish-preview) [![Greenkeeper badge](https://badges.greenkeeper.io/fraxken/publish-preview.svg)](https://greenkeeper.io/)
 
 Node.js CLI to get a preview of properties and files that will be published on the registry by NPM.
 This use the following npm command under the hood:
