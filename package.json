@@ -29,7 +29,7 @@
     "dependencies": {
         "as-table": "^1.0.38",
         "kleur": "^3.0.2",
-        "make-promises-safe": "^4.0.0",
+        "make-promises-safe": "^5.0.0",
         "prettysize": "^2.0.0",
         "stat-mode": "^0.2.2"
     },
