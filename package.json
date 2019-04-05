@@ -31,7 +31,7 @@
         "kleur": "^3.0.2",
         "make-promises-safe": "^5.0.0",
         "prettysize": "^2.0.0",
-        "stat-mode": "^0.2.2"
+        "stat-mode": "^0.3.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^7.5.2",
