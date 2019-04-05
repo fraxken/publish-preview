@@ -39,7 +39,7 @@
         "@escommunity/minami": "^1.0.0",
         "@slimio/eslint-config": "^2.0.3",
         "@types/node": "^11.13.0",
-        "ava": "^1.0.1",
+        "ava": "^1.4.1",
         "cross-env": "^5.2.0",
         "eslint": "^5.10.0",
         "husky": "^1.3.0",
