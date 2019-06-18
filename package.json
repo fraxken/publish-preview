@@ -34,7 +34,7 @@
         "stat-mode": "^0.3.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "^7.5.2",
+        "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^7.5.0",
         "@escommunity/minami": "^1.0.0",
         "@slimio/eslint-config": "^2.0.3",
