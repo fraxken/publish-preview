@@ -37,3 +37,6 @@ $ pubview
 - Find a way to remove call to fs.stat (and use npm mode instead).
 
 > Pull-request are welcome!
+
+## License
+MIT
