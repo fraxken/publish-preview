@@ -6,8 +6,7 @@ require("make-promises-safe");
 // Require Node.js Dependencies
 const { execSync } = require("child_process");
 const { parse } = require("path");
-const { promisify } = require("util");
-const fs = require("fs");
+const { stat } = require("fs").promises;
 
 // Require Third-party Dependencies
 const { green, yellow, gray, cyan, white } = require("kleur");
@@ -18,9 +17,8 @@ const asTable = require("as-table");
 // Require Internal Dependencies
 const { logProperty } = require("../src/utils");
 
-// HEAD Variables...
-const stat = promisify(fs.stat);
-const doNotLog = new Set(["files", "bundled", "entryCount"]);
+// CONSTANTS
+const DO_NOT_LOG = new Set(["files", "bundled", "entryCount"]);
 
 // Execute command in synchronous
 console.log(`\n${gray(" > npm pack --dry-run --json --loglevel=silent")}`);
@@ -37,7 +35,7 @@ delete result.filename;
 
 console.log(`\n${yellow("Publication (Package) Preview")}\n`);
 for (const [name, value] of Object.entries(result)) {
-    if (doNotLog.has(name)) {
+    if (DO_NOT_LOG.has(name)) {
         continue;
     }
     logProperty(name, value);
