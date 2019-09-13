@@ -24,5 +24,6 @@ function logProperty(name, value) {
 }
 
 module.exports = {
-    logProperty
+    logProperty,
+    CONSTANTS: Object.freeze({ KEY_LEN })
 };
