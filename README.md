@@ -2,6 +2,7 @@
 ![V0.2.1](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/fraxken/publish-preview/master/package.json&query=$.version&label=Version)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![dependencies](https://img.shields.io/david/fraxken/publish-preview.svg?style=flat)
+![size](https://img.shields.io/bundlephobia/min/publish-preview)
 [![Known Vulnerabilities](https://snyk.io/test/github/fraxken/publish-preview/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fraxken/publish-preview?targetFile=package.json)
 [![Build Status](https://travis-ci.com/fraxken/publish-preview.svg?branch=master)](https://travis-ci.com/fraxken/publish-preview)
 [![Greenkeeper badge](https://badges.greenkeeper.io/fraxken/publish-preview.svg)](https://greenkeeper.io/)
