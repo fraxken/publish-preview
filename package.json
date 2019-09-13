@@ -20,6 +20,10 @@
         "publish",
         "preview"
     ],
+    "files": [
+        "bin",
+        "src"
+    ],
     "author": "GENTILHOMME Thomas",
     "license": "MIT",
     "bugs": {
