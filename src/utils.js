@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * @namespace Utils
  */
@@ -9,11 +11,11 @@ const { green } = require("kleur");
 const KEY_LEN = 16;
 
 /**
- * @func logProperty
- * @desc Log a property in the console
+ * @function logProperty
+ * @description Log a property in the console
  * @memberof Utils#
- * @param {!String} name property name
- * @param {any} value property value
+ * @param {!string} name property name
+ * @param {any} [value] property value
  * @returns {void}
  */
 function logProperty(name, value) {

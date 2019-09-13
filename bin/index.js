@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+"use strict";
+
 require("make-promises-safe");
 
 // Require Node.js Dependencies
@@ -43,6 +45,11 @@ for (const [name, value] of Object.entries(result)) {
 const bundled = result.bundled.map((dep) => cyan(dep)).join(", ");
 logProperty("bundled", white(`[${bundled}]`));
 
+/**
+ * @async
+ * @function main
+ * @returns {Promise<void>}
+ */
 async function main() {
     // Retrieve all files stat in Asynchronous
     const statFiles = await Promise.all(result.files.map((file) => stat(file.path)));
