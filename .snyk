@@ -1,0 +1,64 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@commitlint/cli > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - eslint > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@commitlint/cli > @commitlint/load > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - eslint > table > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@slimio/eslint-config > eslint > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @babel/core > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - jsdoc > catharsis > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - jsdoc > requizzle > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@commitlint/cli > @commitlint/load > @commitlint/resolve-extends > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@slimio/eslint-config > eslint > inquirer > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@slimio/eslint-config > eslint > table > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @babel/core > @babel/traverse > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - nyc > istanbul-lib-instrument > @babel/traverse > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@commitlint/cli > @commitlint/lint > @commitlint/parse > conventional-commits-parser > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@commitlint/cli > @commitlint/lint > @commitlint/rules > @commitlint/ensure > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - nyc > istanbul-lib-instrument > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-transform-test-files > babel-plugin-espower > @babel/generator > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - nyc > istanbul-lib-instrument > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-transform-test-files > babel-plugin-espower > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - nyc > istanbul-lib-instrument > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > @ava/babel-preset-stage-4 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - ava > lodash:
+        patched: '2020-05-01T06:37:43.592Z'
+    - '@slimio/eslint-config > eslint-plugin-jsdoc > lodash':
+        patched: '2020-05-01T06:37:43.592Z'
