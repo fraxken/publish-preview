@@ -33,7 +33,7 @@
     "dependencies": {
         "as-table": "^1.0.55",
         "kleur": "^3.0.3",
-        "make-promises-safe": "^5.0.0",
+        "make-promises-safe": "^5.1.0",
         "prettysize": "^2.0.0",
         "stat-mode": "^0.3.0"
     },
