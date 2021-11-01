@@ -1,9 +1,5 @@
 "use strict";
 
-/**
- * @namespace Utils
- */
-
 // Require Third-party Dependencies
 const { green } = require("kleur");
 
@@ -19,11 +15,11 @@ const KEY_LEN = 16;
  * @returns {void}
  */
 function logProperty(name, value) {
-    const flySpace = KEY_LEN - name.length;
-    console.log(`${name}${" ".repeat(flySpace)}-> ${green(value)}`);
+  const flySpace = KEY_LEN - name.length;
+  console.log(`${name}${" ".repeat(flySpace)}-> ${green(value)}`);
 }
 
 module.exports = {
-    logProperty,
-    CONSTANTS: Object.freeze({ KEY_LEN })
+  logProperty,
+  CONSTANTS: Object.freeze({ KEY_LEN })
 };

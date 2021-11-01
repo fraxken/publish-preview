@@ -1,74 +1,61 @@
 {
-    "name": "publish-preview",
-    "version": "1.6.0",
-    "description": "npm CLI to get a preview of files that will be publish",
-    "main": "./bin/index.js",
-    "scripts": {
-        "prepublishOnly": "pkg-ok",
-        "test": "ava --verbose",
-        "doc": "jsdoc -c ./jsdoc.json -r -R ./README.md -P ./package.json --verbose",
-        "coverage": "nyc npm test",
-        "report": "nyc report --reporter=html"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fraxken/publish-preview.git"
-    },
-    "keywords": [
-        "npm",
-        "pack",
-        "publish",
-        "preview"
-    ],
-    "files": [
-        "bin",
-        "src"
-    ],
-    "author": "GENTILHOMME Thomas",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/fraxken/publish-preview/issues"
-    },
-    "homepage": "https://github.com/fraxken/publish-preview#readme",
-    "dependencies": {
-        "as-table": "^1.0.55",
-        "kleur": "^3.0.3",
-        "make-promises-safe": "^5.1.0",
-        "prettysize": "^2.0.0",
-        "stat-mode": "^1.0.0"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^8.3.5",
-        "@commitlint/config-conventional": "^8.3.4",
-        "@escommunity/minami": "^1.0.0",
-        "@slimio/eslint-config": "^4.1.0",
-        "ava": "^3.8.2",
-        "cross-env": "^7.0.2",
-        "eslint": "^7.1.0",
-        "husky": "^4.2.5",
-        "jsdoc": "^3.6.4",
-        "nyc": "^15.1.0",
-        "pkg-ok": "^2.3.1"
-    },
-    "engines": {
-        "node": ">=10"
-    },
-    "husky": {
-        "hooks": {
-            "pre-push": "cross-env npm test && eslint src/**",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "nyc": {
-        "check-coverage": true,
-        "per-file": false,
-        "lines": 98,
-        "statements": 98,
-        "functions": 98,
-        "branches": 90
-    },
-    "preferGlobal": true,
-    "bin": {
-        "pubview": "./bin/index.js"
-    }
+  "name": "publish-preview",
+  "version": "1.6.0",
+  "description": "npm CLI to get a preview of files that will be publish",
+  "main": "./bin/index.js",
+  "scripts": {
+    "prepublishOnly": "pkg-ok",
+    "test": "ava --verbose",
+    "coverage": "nyc npm test",
+    "report": "nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraxken/publish-preview.git"
+  },
+  "keywords": [
+    "npm",
+    "pack",
+    "publish",
+    "preview"
+  ],
+  "files": [
+    "bin",
+    "src"
+  ],
+  "author": "GENTILHOMME Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fraxken/publish-preview/issues"
+  },
+  "homepage": "https://github.com/fraxken/publish-preview#readme",
+  "dependencies": {
+    "as-table": "^1.0.55",
+    "kleur": "^4.1.4",
+    "prettysize": "^2.0.0",
+    "stat-mode": "^1.0.0"
+  },
+  "devDependencies": {
+    "@nodesecure/eslint-config": "^1.3.0",
+    "ava": "^3.15.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.1.0",
+    "nyc": "^15.1.0",
+    "pkg-ok": "^2.3.1"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "lines": 98,
+    "statements": 98,
+    "functions": 98,
+    "branches": 90
+  },
+  "preferGlobal": true,
+  "bin": {
+    "pubview": "./bin/index.js"
+  }
 }

@@ -7,6 +7,6 @@ const avaTest = require("ava");
 const { logProperty } = require("../src/utils");
 
 avaTest("logProperty should return undefined", async(assert) => {
-    const ret = logProperty("key", "value");
-    assert.true(typeof ret === "undefined");
+  const ret = logProperty("key", "value");
+  assert.true(typeof ret === "undefined");
 });

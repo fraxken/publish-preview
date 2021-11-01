@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 "use strict";
 
-require("make-promises-safe");
-
 // Require Node.js Dependencies
 const { execSync } = require("child_process");
 const { parse } = require("path");
-const { stat } = require("fs").promises;
+const { stat } = require("fs/promises");
 
 // Require Third-party Dependencies
 const { green, yellow, gray, cyan, white } = require("kleur");
@@ -35,10 +33,10 @@ delete result.filename;
 
 console.log(`\n${yellow("Publication (Package) Preview")}\n`);
 for (const [name, value] of Object.entries(result)) {
-    if (DO_NOT_LOG.has(name)) {
-        continue;
-    }
-    logProperty(name, value);
+  if (DO_NOT_LOG.has(name)) {
+    continue;
+  }
+  logProperty(name, value);
 }
 const bundled = result.bundled.map((dep) => cyan(dep)).join(", ");
 logProperty("bundled", white(`[${bundled}]`));
@@ -49,22 +47,22 @@ logProperty("bundled", white(`[${bundled}]`));
  * @returns {Promise<void>}
  */
 async function main() {
-    // Retrieve all files stat in Asynchronous
-    const statFiles = await Promise.all(result.files.map((file) => stat(file.path)));
+  // Retrieve all files stat in Asynchronous
+  const statFiles = await Promise.all(result.files.map((file) => stat(file.path)));
 
-    console.log(`\n${green(result.entryCount)} ${yellow("Files")}\n`);
-    const stdout = [];
-    for (let id = 0; id < result.files.length; id++) {
-        const { path, size } = result.files[id];
-        const { dir, base } = parse(path);
+  console.log(`\n${green(result.entryCount)} ${yellow("Files")}\n`);
+  const stdout = [];
+  for (let id = 0; id < result.files.length; id++) {
+    const { path, size } = result.files[id];
+    const { dir, base } = parse(path);
 
-        stdout.push([
-            green(`📁 ${dir === "" ? "/" : dir} `),
-            `<${yellow(prettysize(size, { places: 2 }))}>`,
-            gray(new Mode(statFiles[id]).toString()),
-            base
-        ]);
-    }
-    console.log(`${asTable(stdout)}\n`);
+    stdout.push([
+      green(`📁 ${dir === "" ? "/" : dir} `),
+      `<${yellow(prettysize(size, { places: 2 }))}>`,
+      gray(new Mode(statFiles[id]).toString()),
+      base
+    ]);
+  }
+  console.log(`${asTable(stdout)}\n`);
 }
 main().catch(console.error);
