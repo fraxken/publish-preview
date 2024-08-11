@@ -1,12 +1,13 @@
 "use strict";
 
-// Require Third-party Dependencies
-const avaTest = require("ava");
+// Require Node.js Dependencies
+import { test } from "node:test";
+import { ok } from "node:assert";
 
-// Require Internal Dependencies
-const { logProperty } = require("../src/utils");
+// Import Internal Dependencies
+import { logProperty } from "../src/utils.js";
 
-avaTest("logProperty should return undefined", async(assert) => {
+test("logProperty should return undefined", () => {
   const ret = logProperty("key", "value");
-  assert.true(typeof ret === "undefined");
+  ok(typeof ret === "undefined");
 });

@@ -1,7 +1,10 @@
 {
   "extends": "@nodesecure/eslint-config",
   "parserOptions": {
-      "sourceType": "script",
+      "sourceType": "module",
       "requireConfigFile": false
+  },
+  "rules": {
+    "no-implicit-globals": "off"
   }
 }

@@ -3,11 +3,10 @@
   "version": "1.7.0",
   "description": "npm CLI to get a preview of files that will be publish",
   "main": "./bin/index.js",
+  "type": "module",
   "scripts": {
-    "prepublishOnly": "pkg-ok",
-    "test": "ava --verbose",
-    "coverage": "nyc npm test",
-    "report": "nyc report --reporter=html"
+    "test": "node --test",
+    "coverage": "c8 -r html npm test"
   },
   "repository": {
     "type": "git",
@@ -36,25 +35,13 @@
     "stat-mode": "^1.0.0"
   },
   "devDependencies": {
-    "@nodesecure/eslint-config": "^1.5.0",
-    "ava": "^4.3.3",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.23.0",
-    "nyc": "^15.1.0",
-    "pkg-ok": "^3.0.0"
+    "@nodesecure/eslint-config": "^1.9.0",
+    "c8": "^10.1.2",
+    "eslint": "^8.57.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
-  "nyc": {
-    "check-coverage": true,
-    "per-file": false,
-    "lines": 98,
-    "statements": 98,
-    "functions": 98,
-    "branches": 90
-  },
-  "preferGlobal": true,
   "bin": {
     "pubview": "./bin/index.js"
   }

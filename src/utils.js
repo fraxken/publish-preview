@@ -1,10 +1,10 @@
-"use strict";
-
-// Require Third-party Dependencies
-const { green } = require("kleur");
+// Import Third-party Dependencies
+import kleur from "kleur";
 
 // CONSTANT
-const KEY_LEN = 16;
+export const CONSTANTS = Object.freeze({
+  KEY_LEN: 16
+});
 
 /**
  * @function logProperty
@@ -14,12 +14,11 @@ const KEY_LEN = 16;
  * @param {any} [value] property value
  * @returns {void}
  */
-function logProperty(name, value) {
-  const flySpace = KEY_LEN - name.length;
-  console.log(`${name}${" ".repeat(flySpace)}-> ${green(value)}`);
-}
+export function logProperty(
+  name,
+  value
+) {
+  const flySpace = CONSTANTS.KEY_LEN - name.length;
 
-module.exports = {
-  logProperty,
-  CONSTANTS: Object.freeze({ KEY_LEN })
-};
+  console.log(`${name}${" ".repeat(flySpace)}-> ${kleur.green(value)}`);
+}
