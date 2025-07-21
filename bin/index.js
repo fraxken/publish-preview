@@ -6,17 +6,15 @@ import { parse } from "node:path";
 import { stat } from "node:fs/promises";
 
 // Import Third-party Dependencies
-import kleur from "kleur";
-import prettysize from "prettysize";
 import Mode from "stat-mode";
 import asTable from "as-table";
 
 // Import Internal Dependencies
-import { logProperty } from "../src/utils.js";
+import { cyan, gray, yellow, green, white } from "../src/colors.js";
+import { logProperty, formatBytes } from "../src/utils.js";
 
 // CONSTANTS
-const DO_NOT_LOG = new Set(["files", "bundled", "entryCount"]);
-const { green, yellow, gray, cyan, white } = kleur;
+const kDoNotLog = new Set(["files", "bundled", "entryCount"]);
 
 // Execute command in synchronous
 
@@ -30,13 +28,13 @@ let result;
 
 // Update result properties
 result.name = `${result.name} (${cyan(result.filename)})`;
-result.size = `${yellow(prettysize(result.size, { places: 2 }))}`;
-result.unpackedSize = `${yellow(prettysize(result.unpackedSize, { places: 2 }))}`;
+result.size = `${yellow(formatBytes(result.size))}`;
+result.unpackedSize = `${yellow(formatBytes(result.unpackedSize))}`;
 delete result.filename;
 
 console.log(`\n${yellow("Publication (Package) Preview")}\n`);
 for (const [name, value] of Object.entries(result)) {
-  if (DO_NOT_LOG.has(name)) {
+  if (kDoNotLog.has(name)) {
     continue;
   }
   logProperty(name, value);
@@ -49,7 +47,7 @@ const statFiles = await Promise.all(
   result.files.map((file) => stat(file.path))
 );
 
-console.log(`\n${green(result.entryCount)} ${yellow("Files")}\n`);
+console.log(`\n${green(String(result.entryCount))} ${yellow("Files")}\n`);
 const stdout = [];
 for (let id = 0; id < result.files.length; id++) {
   const { path, size } = result.files[id];
@@ -57,7 +55,7 @@ for (let id = 0; id < result.files.length; id++) {
 
   stdout.push([
     green(`📁 ${dir === "" ? "/" : dir} `),
-    `<${yellow(prettysize(size, { places: 2 }))}>`,
+    `<${yellow(formatBytes(size))}>`,
     gray(new Mode(statFiles[id]).toString()),
     base
   ]);

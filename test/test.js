@@ -1,6 +1,4 @@
-"use strict";
-
-// Require Node.js Dependencies
+// Import Node.js Dependencies
 import { test } from "node:test";
 import { ok } from "node:assert";
 
