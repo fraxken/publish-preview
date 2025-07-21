@@ -37,7 +37,7 @@
     "c8": "^10.1.2"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "bin": {
     "pubview": "./bin/index.js"
