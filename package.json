@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/fraxken/publish-preview#readme",
   "dependencies": {
-    "as-table": "^1.0.55",
-    "stat-mode": "^1.0.0"
+    "as-table": "1.0.55",
+    "stat-mode": "1.0.0"
   },
   "devDependencies": {
     "@openally/config.eslint": "^2.2.0",
